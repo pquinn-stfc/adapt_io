@@ -1,0 +1,130 @@
+# Field mapping for Diamond I14 XRF NeXus files (e.g. i14-394175_xrf.nxs).
+#
+# Scan positions are stored in mm → converted to m.
+# Element maps are 2-D float arrays (nav_y × nav_x).
+# I0 monitor channels have two trailing size-1 dimensions → squeezed to 2-D.
+
+# --- Instrument metadata ---
+
+beam_energy:
+  path: /entry/instrument/DCM/dcm_energy     # keV — already correct unit
+
+count_time:
+  path: /entry/instrument/It/count_time      # seconds
+
+# --- Scan axis positions (mm → m) ---
+
+scan_x:
+  path: /processed/Ca-Ka/SampleX_value_set
+  transform: mm_to_m
+  keep_array: true
+
+scan_y:
+  path: /processed/Ca-Ka/SampleY_value_set
+  transform: mm_to_m
+  keep_array: true
+
+# --- I0 monitor channels (34 × 76 × 1 × 1 → 34 × 76) ---
+
+i0_1:
+  path: /entry/I0_1/data
+  transform: squeeze
+  keep_array: true
+
+i0_2:
+  path: /entry/I0_2/data
+  transform: squeeze
+  keep_array: true
+
+i0_3:
+  path: /entry/I0_3/data
+  transform: squeeze
+  keep_array: true
+
+i0_4:
+  path: /entry/I0_4/data
+  transform: squeeze
+  keep_array: true
+
+it:
+  path: /entry/It/data
+  transform: squeeze
+  keep_array: true
+
+# --- XRF element maps (34 × 76, raw counts) ---
+
+ca_ka:
+  path: /processed/Ca-Ka/data
+  keep_array: true
+
+fe_ka:
+  path: /processed/Fe-Ka/data
+  keep_array: true
+
+cu_ka:
+  path: /processed/Cu-Ka/data
+  keep_array: true
+
+zn_ka:
+  path: /processed/Zn-Ka/data
+  keep_array: true
+
+mn_ka:
+  path: /processed/Mn-Ka/data
+  keep_array: true
+
+k_ka:
+  path: /processed/K-Ka/data
+  keep_array: true
+
+p_ka:
+  path: /processed/P-Ka/data
+  keep_array: true
+
+s_ka:
+  path: /processed/S-Ka/data
+  keep_array: true
+
+# --- Normalised element maps (divided by I0) ---
+
+ca_ka_norm:
+  path: /processed/Ca-Ka-norm/data
+  keep_array: true
+
+fe_ka_norm:
+  path: /processed/Fe-Ka-norm/data
+  keep_array: true
+
+cu_ka_norm:
+  path: /processed/Cu-Ka-norm/data
+  keep_array: true
+
+zn_ka_norm:
+  path: /processed/Zn-Ka-norm/data
+  keep_array: true
+
+mn_ka_norm:
+  path: /processed/Mn-Ka-norm/data
+  keep_array: true
+
+k_ka_norm:
+  path: /processed/K-Ka-norm/data
+  keep_array: true
+
+p_ka_norm:
+  path: /processed/P-Ka-norm/data
+  keep_array: true
+
+s_ka_norm:
+  path: /processed/S-Ka-norm/data
+  keep_array: true
+
+# --- Full MCA spectrum stack (34 × 76 × 4096) ---
+
+mca:
+  path: /processed/mca/data
+  keep_array: true
+
+mca_energy:                                  # keV axis for MCA channels
+  path: /processed/mca/energy
+  keep_array: true
