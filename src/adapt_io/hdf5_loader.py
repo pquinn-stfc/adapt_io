@@ -107,6 +107,7 @@ _TRANSFORMS: dict[str, Callable] = {
     "step_from_positions_mm":  lambda x: float(np.diff(np.asarray(x)).mean()) * 1e-3,
     "step_from_positions_um":  lambda x: float(np.diff(np.asarray(x)).mean()) * 1e-6,
     "step_from_positions_nm":  lambda x: float(np.diff(np.asarray(x)).mean()) * 1e-9,
+    "squeeze":                 lambda x: np.squeeze(np.asarray(x)),
 }
 
 
