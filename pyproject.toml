@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nexus-io"
+version = "0.1.0"
+description = "Generic NeXus/HDF5 I/O for scanning X-ray nanoprobe beamlines"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Paul Quinn", email = "paul.quinn@stfc.ac.uk" },
+]
+keywords = ["NeXus", "HDF5", "I14", "synchrotron", "X-ray"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: BSD Software License",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "h5py",
+    "pyyaml",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/nexus_io"]
+
+[tool.hatch.envs.default]
+dependencies = ["pytest", "pytest-cov"]
+
+[project.scripts]
+adapt-io = "adapt_io.cli:main"
+
+[tool.hatch.envs.default.scripts]
+test = "pytest {args}"
