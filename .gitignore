@@ -1,0 +1,20 @@
+# Data files
+*.h5
+*.hdf5
+*.nxs
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Manifests written by adapt-io
+*.manifest.json
+
+# IDE
+.idea/
+.vscode/
