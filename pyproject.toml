@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "nexus-io"
+name = "adapt_io"
 version = "0.1.0"
 description = "Generic NeXus/HDF5 I/O for scanning X-ray nanoprobe beamlines"
 readme = "README.md"
@@ -32,7 +32,7 @@ dev = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/nexus_io"]
+packages = ["src/adapt_io"]
 
 [tool.hatch.envs.default]
 dependencies = ["pytest", "pytest-cov"]
