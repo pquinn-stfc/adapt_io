@@ -14,7 +14,7 @@ authors = [
 keywords = ["NeXus", "HDF5", "I14", "synchrotron", "X-ray"]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: BSD Software License",
+    "License :: OSI Approved :: BSD License",
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Physics",
 ]
